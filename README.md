@@ -1,4 +1,4 @@
 # Hitokoto
 ## To do
 - [x] Fix
-- [ ] Fix
+- [v] Fix
