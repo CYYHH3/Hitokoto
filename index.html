@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitokoto | 一言</title>
+    <link rel="icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CYYHH3/CDN2@main/static/Waves/v0.7.6/waves.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CYYHH3/CDN2@main/static/APlayer/v1.10.1/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/CYYHH3/CDN2@main/static/vue.js/v2.6.12/vue.min.js"></script>
+    <style>
+        #hitokoto {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        #hitokoto h3 {
+            position: absolute;
+            right: 0px;
+        }
+        #hitokoto a {
+            text-decoration: none;
+            color: #000;
+            transition: color 0.2s ease 0s;
+        }
+        #hitokoto a:hover {
+            color: slategray;
+            transition: color 0.2s ease 0s;
+        }
+        #outer button {
+            background: #000;
+            color: #fff;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            /*right: 5%;
+            bottom: 5%;*/
+        }
+        /*#outer button:hover {
+            background: #fff;
+            color: #000;
+        }*/
+        .darkmode-layer, .darkmode-toggle {
+            z-index: 500;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="hitokoto">
+            <!--<h1>「 <a href='' target="_blank" id="link">{{ hitokoto_hitokoto }}</a> 」</h1>-->
+            <h1>『 <a href='' target="_blank" id="link">{{ hitokoto_hitokoto }}</a> 』</h1>
+            <h3>—— {{ hitokoto_from_who }}《{{ hitokoto_from }}》</h3>
+        </div>
+        <button class="getHitokoto" v-on:click="getHitokoto">换一句</button>
+    </div>
+    <div id="aplayer"></div>
+
+    <!-- Vue -->
+    <script>
+        var app = new Vue({
+            el: '#outer',
+            data: {
+                hitokoto: '获取中...',
+                hitokoto_hitokoto: '获取中...',
+                hitokoto_from_who: '获取中...',
+                hitokoto_from: '获取中...',
+                hitokoto_type: '获取中...',
+                all_hitokoto_type: {"a":"动画","b":"漫画","c":"游戏","d":"文学","e":"原创","f":"来自网络","g":"其他","h":"影视","i":"诗词","j":"网易云","k":"哲学","l":"抖机灵"},
+            },
+            created () {
+                fetch('https://v1.hitokoto.cn/')
+                    .then(response => response.json())
+                    .then(json => {
+                        this.hitokoto = json
+                        link.href = 'https://hitokoto.cn/?uuid=' + json.uuid
+                        this.hitokoto_hitokoto = json.hitokoto
+                        this.hitokoto_from_who = json.from_who
+                        this.hitokoto_from = json.from
+                        if (json.type=="a"){
+                            this.hitokoto_type = this.all_hitokoto_type.a
+                        }
+                        else if (json.type=="b"){
+                            this.hitokoto_type = this.all_hitokoto_type.b
+                        }
+                        else if (json.type=="c"){
+                            this.hitokoto_type = this.all_hitokoto_type.c
+                        }
+                        else if (json.type=="d"){
+                            this.hitokoto_type = this.all_hitokoto_type.d
+                        }
+                        else if (json.type=="e"){
+                            this.hitokoto_type = this.all_hitokoto_type.e
+                        }
+                        else if (json.type=="f"){
+                            this.hitokoto_type = this.all_hitokoto_type.f
+                        }
+                        else if (json.type=="g"){
+                            this.hitokoto_type = this.all_hitokoto_type.g
+                        }
+                        else if (json.type=="h"){
+                            this.hitokoto_type = this.all_hitokoto_type.h
+                        }
+                        else if (json.type=="i"){
+                            this.hitokoto_type = this.all_hitokoto_type.i
+                        }
+                        else if (json.type=="j"){
+                            this.hitokoto_type = this.all_hitokoto_type.j
+                        }
+                        else if (json.type=="k"){
+                            this.hitokoto_type = this.all_hitokoto_type.k
+                        }
+                        else if (json.type=="l"){
+                            this.hitokoto_type = this.all_hitokoto_type.l
+                        }
+                        console.log(json)
+                        console.log("一言正文："+json.hitokoto + "\n\n一言作者："+json.from_who + "\n\n一言出处："+json.from + "\n\n句子长度："+json.length + "\n\n一言类型："+json.type+"（"+app.hitokoto_type+"）" + "\n\n一言标识（ID）："+json.id + "\n\n一言唯一标识（UUID）："+json.uuid + "\n\n添加者："+json.creator + "\n\n添加者用户标识（Creator UID）："+json.creator_uid + "\n\n添加时间："+json.created_at + "\n\n提交方式："+json.commit_from + "\n\n审核员标识："+json.reviewer)
+                    })
+                    //.catch(console.error)
+            },
+            methods: {
+                getHitokoto: function () {
+                    fetch('https://v1.hitokoto.cn/')
+                        .then(response => response.json())
+                        .then(json => {
+                            this.hitokoto = json
+                            link.href = 'https://hitokoto.cn/?uuid=' + json.uuid
+                            this.hitokoto_hitokoto = json.hitokoto
+                            this.hitokoto_from_who = json.from_who
+                            this.hitokoto_from = json.from
+                            if (json.type=="a"){
+                                this.hitokoto_type = this.all_hitokoto_type.a
+                            }
+                            else if (json.type=="b"){
+                                this.hitokoto_type = this.all_hitokoto_type.b
+                            }
+                            else if (json.type=="c"){
+                                this.hitokoto_type = this.all_hitokoto_type.c
+                            }
+                            else if (json.type=="d"){
+                                this.hitokoto_type = this.all_hitokoto_type.d
+                            }
+                            else if (json.type=="e"){
+                                this.hitokoto_type = this.all_hitokoto_type.e
+                            }
+                            else if (json.type=="f"){
+                                this.hitokoto_type = this.all_hitokoto_type.f
+                            }
+                            else if (json.type=="g"){
+                                this.hitokoto_type = this.all_hitokoto_type.g
+                            }
+                            else if (json.type=="h"){
+                                this.hitokoto_type = this.all_hitokoto_type.h
+                            }
+                            else if (json.type=="i"){
+                                this.hitokoto_type = this.all_hitokoto_type.i
+                            }
+                            else if (json.type=="j"){
+                                this.hitokoto_type = this.all_hitokoto_type.j
+                            }
+                            else if (json.type=="k"){
+                                this.hitokoto_type = this.all_hitokoto_type.k
+                            }
+                            else if (json.type=="l"){
+                                this.hitokoto_type = this.all_hitokoto_type.l
+                            }
+                            console.log(json)
+                            console.log("一言正文："+json.hitokoto + "\n\n一言作者："+json.from_who + "\n\n一言出处："+json.from + "\n\n句子长度："+json.length + "\n\n一言类型："+json.type+"（"+app.hitokoto_type+"）" + "\n\n一言标识（ID）："+json.id + "\n\n一言唯一标识（UUID）："+json.uuid + "\n\n添加者："+json.creator + "\n\n添加者用户标识（Creator UID）："+json.creator_uid + "\n\n添加时间："+json.created_at + "\n\n提交方式："+json.commit_from + "\n\n审核员标识："+json.reviewer)
+                        })
+                        //.catch(console.error)
+                },
+            }
+        })
+    </script>
+
+    <!-- Waves -->
+    <script src="https://cdn.jsdelivr.net/gh/CYYHH3/CDN2@main/static/Waves/v0.7.6/waves.min.js"></script>
+    <script type="text/javascript">
+        Waves.attach('.getHitokoto', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.init();
+    </script>
+
+    <!-- Darkmode -->
+    <script src="https://cdn.jsdelivr.net/gh/CYYHH3/CDN2@main/static/Darkmode.js/v1.5.7/darkmode.min.js"></script>
+    <script>
+        function addDarkmodeWidget() {
+            new Darkmode().showWidget();
+            const options = {
+                bottom: '75px', // default: '32px'
+                right: '20px', // default: '32px'
+                label: '🌓', // default: ''
+            }
+            const darkmode = new Darkmode(options);
+            darkmode.showWidget();
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
+
+    <!-- APlayer -->
+    <script src="https://cdn.jsdelivr.net/gh/CYYHH3/CDN2@main/static/APlayer/v1.10.1/APlayer.min.js"></script>
+    <script>
+        var url="https://cdn.jsdelivr.net/gh/CYYHH3/Music";
+        const ap = new APlayer({
+            container: document.getElementById('aplayer'),
+            volume: 0.5,
+            lrcType: 3,
+            fixed: true,
+            audio: [
+                {
+                    name: '起风了',
+                    artist: '周深',
+                    url: url+'/music/起风了/起风了.mp3',
+                    cover: url+'/music/起风了/起风了.png',
+                    lrc: url+'/music/起风了/起风了.lrc'
+                },
+                {
+                    name: 'Lose Control',
+                    artist: 'Hedley',
+                    url: url+'/music/Lose Control/Lose Control.mp3',
+                    cover: url+'/music/Lose Control/Hello.png',
+                    lrc: url+'/music/Lose Control/Lose Control.lrc'
+                },
+                {
+                    name: 'Let Yourself Go',
+                    artist: 'Ooyy, Snake City',
+                    url: url+'/music/Let Yourself Go/Let Yourself Go.mp3',
+                    cover: url+'/music/Let Yourself Go/Let Yourself Go.png',
+                    lrc: url+'/music/Let Yourself Go/Let Yourself Go.lrc'
+                },
+                {
+                    name: '怪可爱的',
+                    artist: 'YYGQ',
+                    url: url+'/music/怪可爱的/怪可爱的.mp3',
+                    cover: url+'/music/怪可爱的/怪可爱的.png',
+                    lrc: url+'/music/怪可爱的/怪可爱的.lrc'
+                },
+                {
+                    name: 'Love and War',
+                    artist: 'Fleurie',
+                    url: url+'/music/Love and War/Love and War.mp3',
+                    cover: url+'/music/Love and War/Love and War.png',
+                    lrc: url+'/music/Love and War/Love and War.lrc'
+                },
+                {
+                    name: "Ready Let's Go",
+                    artist: 'DARKMINDS',
+                    url: url+'/music/Ready Lets Go/Ready Lets Go.mp3',
+                    cover: url+'/music/Ready Lets Go/Ready Lets Go.png',
+                    lrc: url+'/music/Ready Lets Go/Ready Lets Go.lrc'
+                },
+                {
+                    name: "Dimples",
+                    artist: 'oomiee',
+                    url: url+'/music/Dimples/Dimples.mp3',
+                    cover: url+'/music/Dimples/Dimples.png',
+                    lrc: url+'/music/Dimples/Dimples.lrc',
+                }
+            ]
+        });
+        ap.lrc.hide()
+    </script>
+</body>
+</html>
