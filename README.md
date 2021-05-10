@@ -1,3 +1,3 @@
 # Hitokoto
 ## To do
-- [ ] Fix Darkmode.js
+- [ ] Fix Darkmode.js issue
