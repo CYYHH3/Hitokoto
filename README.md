@@ -1,4 +1,3 @@
 # Hitokoto
 ## To do
-- [x] Fix
-- [v] Fix
+- [ ] Fix Darkmode.js
