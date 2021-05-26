@@ -1,5 +1,18 @@
 // Vue
 
+// Darkmode
+function addDarkmodeWidget() {
+    new Darkmode().showWidget();
+    const options = {
+        bottom: '75px', // default: '32px'
+        right: '20px', // default: '32px'
+        label: '🌓', // default: ''
+    }
+    const darkmode = new Darkmode(options);
+    darkmode.showWidget();
+}
+window.addEventListener('load', addDarkmodeWidget);
+
 // APlayer
 var url="https://cdn.jsdelivr.net/gh/CYYHH3/Music";
 const ap = new APlayer({
