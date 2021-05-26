@@ -1,9 +1,5 @@
 // Vue
 
-// Waves
-Waves.attach('.getHitokoto', ['waves-button', 'waves-float', 'waves-light']);
-Waves.init();
-
 // Darkmode
 function addDarkmodeWidget() {
     new Darkmode().showWidget();
