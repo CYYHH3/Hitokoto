@@ -1,0 +1,41 @@
+#hitokoto {
+    font-family: 微软雅黑;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+#hitokoto h3 {
+    position: absolute;
+    right: 0px;
+}
+#hitokoto a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.2s ease 0s;
+}
+#hitokoto a:hover {
+    color: slategray;
+    transition: color 0.2s ease 0s;
+}
+#outer button {
+    background: #000;
+    color: #fff;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    /*right: 5%;
+    bottom: 5%;*/
+    transition: 0.2s ease 0s;
+}
+/*#outer button:hover {
+    background: #fff;
+    color: #000;
+}*/
+#outer button:hover {
+    background: #4c4c4c;
+    transition: 0.2s ease 0s;
+}
+.darkmode-layer, .darkmode-toggle {
+    z-index: 500;
+}
