@@ -132,6 +132,7 @@ const ap = new APlayer({
     container: document.getElementById('aplayer'),
     volume: 0.5,
     lrcType: 3,
+    fixed: true,
     audio: [
         {
             name: '起风了',
