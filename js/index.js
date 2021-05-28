@@ -142,18 +142,32 @@ const ap = new APlayer({
             lrc: url+'/music/起风了/起风了.lrc'
         },
         {
+            name: 'Let Yourself Go',
+            artist: 'Ooyy / Snake City',
+            url: url+'/music/Let Yourself Go/Let Yourself Go.mp3',
+            cover: url+'/music/Let Yourself Go/Let Yourself Go.png',
+            lrc: url+'/music/Let Yourself Go/Let Yourself Go.lrc'
+        },
+        {
+            name: '恋のうた',
+            artist: 'Yunomi / 鬼頭明里',
+            url: url+'/music/恋のうた/恋のうた.mp3',
+            cover: url+'/music/恋のうた/恋のうた.png',
+            lrc: url+'/music/恋のうた/恋のうた.lrc'
+        },
+        {
+            name: '恋のうた (Short Version)',
+            artist: 'Yunomi',
+            url: url+'/music/恋のうた/恋のうた (Short Version).mp3',
+            cover: url+'/music/恋のうた/恋のうた.png',
+            lrc: url+'/music/恋のうた/恋のうた (Short Version).lrc'
+        },
+        {
             name: 'Lose Control',
             artist: 'Hedley',
             url: url+'/music/Lose Control/Lose Control.mp3',
             cover: url+'/music/Lose Control/Hello.png',
             lrc: url+'/music/Lose Control/Lose Control.lrc'
-        },
-        {
-            name: 'Let Yourself Go',
-            artist: 'Ooyy, Snake City',
-            url: url+'/music/Let Yourself Go/Let Yourself Go.mp3',
-            cover: url+'/music/Let Yourself Go/Let Yourself Go.png',
-            lrc: url+'/music/Let Yourself Go/Let Yourself Go.lrc'
         },
         {
             name: '怪可爱的',
