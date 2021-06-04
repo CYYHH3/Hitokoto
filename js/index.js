@@ -120,6 +120,7 @@ function addDarkmodeWidget() {
         bottom: '75px', // default: '32px'
         right: '20px', // default: '32px'
         label: '🌓', // default: ''
+        autoMatchOsTheme: false // default: true
     }
     const darkmode = new Darkmode(options);
     darkmode.showWidget();
