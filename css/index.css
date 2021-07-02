@@ -36,6 +36,9 @@
     background: #4c4c4c;
     transition: 0.2s ease 0s;
 }
-.darkmode-layer, .darkmode-toggle {
-    z-index: 500;
+.outer, #aplayer {
+    z-index: 0;
 }
+/*.darkmode-layer, .darkmode-toggle {
+    z-index: 500;
+}*/
