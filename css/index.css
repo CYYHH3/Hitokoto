@@ -39,6 +39,9 @@
 #hitokoto, .getHitokoto, #aplayer {
     z-index: -1;
 }
+.getHitokoto {
+    z-index: -1;
+}
 /*.darkmode-layer, .darkmode-toggle {
     z-index: 500;
 }*/
