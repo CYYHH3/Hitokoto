@@ -36,9 +36,9 @@
     background: #4c4c4c;
     transition: 0.2s ease 0s;
 }
-#hitokoto, .getHitokoto, #aplayer {
+/*#hitokoto, .getHitokoto, #aplayer {
     z-index: -1;
-}
-/*.darkmode-layer, .darkmode-toggle {
-    z-index: 500;
 }*/
+.darkmode-layer, .darkmode-toggle {
+    z-index: 500;
+}
