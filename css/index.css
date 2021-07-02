@@ -39,7 +39,7 @@
 #hitokoto, .getHitokoto, #aplayer {
     z-index: -1;
 }
-.getHitokoto {
+button.getHitokoto.waves-effect.waves-button.waves-float.waves-light {
     z-index: -1;
 }
 /*.darkmode-layer, .darkmode-toggle {
