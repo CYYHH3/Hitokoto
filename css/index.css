@@ -39,9 +39,6 @@
 #hitokoto, .getHitokoto, #aplayer {
     z-index: -1;
 }
-button.getHitokoto.waves-effect.waves-button.waves-float.waves-light {
-    z-index: -1;
-}
 /*.darkmode-layer, .darkmode-toggle {
     z-index: 500;
 }*/
