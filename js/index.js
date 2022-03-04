@@ -18,42 +18,8 @@ var app = new Vue({
                 this.hitokoto_hitokoto = json.hitokoto
                 this.hitokoto_from_who = json.from_who
                 this.hitokoto_from = json.from
-                if (json.type=="a"){
-                    this.hitokoto_type = this.all_hitokoto_type.a
-                }
-                else if (json.type=="b"){
-                    this.hitokoto_type = this.all_hitokoto_type.b
-                }
-                else if (json.type=="c"){
-                    this.hitokoto_type = this.all_hitokoto_type.c
-                }
-                else if (json.type=="d"){
-                    this.hitokoto_type = this.all_hitokoto_type.d
-                }
-                else if (json.type=="e"){
-                    this.hitokoto_type = this.all_hitokoto_type.e
-                }
-                else if (json.type=="f"){
-                    this.hitokoto_type = this.all_hitokoto_type.f
-                }
-                else if (json.type=="g"){
-                    this.hitokoto_type = this.all_hitokoto_type.g
-                }
-                else if (json.type=="h"){
-                    this.hitokoto_type = this.all_hitokoto_type.h
-                }
-                else if (json.type=="i"){
-                    this.hitokoto_type = this.all_hitokoto_type.i
-                }
-                else if (json.type=="j"){
-                    this.hitokoto_type = this.all_hitokoto_type.j
-                }
-                else if (json.type=="k"){
-                    this.hitokoto_type = this.all_hitokoto_type.k
-                }
-                else if (json.type=="l"){
-                    this.hitokoto_type = this.all_hitokoto_type.l
-                }
+                this.hitokoto_type = this.all_hitokoto_type[json.type]
+
                 console.log(json)
                 console.log("一言正文："+json.hitokoto + "\n\n一言作者："+json.from_who + "\n\n一言出处："+json.from + "\n\n句子长度："+json.length + "\n\n一言类型："+json.type+"（"+app.hitokoto_type+"）" + "\n\n一言标识（ID）："+json.id + "\n\n一言唯一标识（UUID）："+json.uuid + "\n\n添加者："+json.creator + "\n\n添加者用户标识（Creator UID）："+json.creator_uid + "\n\n添加时间："+json.created_at + "\n\n提交方式："+json.commit_from + "\n\n审核员标识："+json.reviewer)
             })
@@ -69,42 +35,8 @@ var app = new Vue({
                     this.hitokoto_hitokoto = json.hitokoto
                     this.hitokoto_from_who = json.from_who
                     this.hitokoto_from = json.from
-                    if (json.type=="a"){
-                        this.hitokoto_type = this.all_hitokoto_type.a
-                    }
-                    else if (json.type=="b"){
-                        this.hitokoto_type = this.all_hitokoto_type.b
-                    }
-                    else if (json.type=="c"){
-                        this.hitokoto_type = this.all_hitokoto_type.c
-                    }
-                    else if (json.type=="d"){
-                        this.hitokoto_type = this.all_hitokoto_type.d
-                    }
-                    else if (json.type=="e"){
-                        this.hitokoto_type = this.all_hitokoto_type.e
-                    }
-                    else if (json.type=="f"){
-                        this.hitokoto_type = this.all_hitokoto_type.f
-                    }
-                    else if (json.type=="g"){
-                        this.hitokoto_type = this.all_hitokoto_type.g
-                    }
-                    else if (json.type=="h"){
-                        this.hitokoto_type = this.all_hitokoto_type.h
-                    }
-                    else if (json.type=="i"){
-                        this.hitokoto_type = this.all_hitokoto_type.i
-                    }
-                    else if (json.type=="j"){
-                        this.hitokoto_type = this.all_hitokoto_type.j
-                    }
-                    else if (json.type=="k"){
-                        this.hitokoto_type = this.all_hitokoto_type.k
-                    }
-                    else if (json.type=="l"){
-                        this.hitokoto_type = this.all_hitokoto_type.l
-                    }
+                    this.hitokoto_type = this.all_hitokoto_type[json.type]
+                    
                     console.log(json)
                     console.log("一言正文："+json.hitokoto + "\n\n一言作者："+json.from_who + "\n\n一言出处："+json.from + "\n\n句子长度："+json.length + "\n\n一言类型："+json.type+"（"+app.hitokoto_type+"）" + "\n\n一言标识（ID）："+json.id + "\n\n一言唯一标识（UUID）："+json.uuid + "\n\n添加者："+json.creator + "\n\n添加者用户标识（Creator UID）："+json.creator_uid + "\n\n添加时间："+json.created_at + "\n\n提交方式："+json.commit_from + "\n\n审核员标识："+json.reviewer)
                 })
